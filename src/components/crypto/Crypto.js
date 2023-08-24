@@ -28,8 +28,7 @@ const Crypto = ({ cryptoList }) => {
 
   useEffect(() => {
     fetchCryptoValues();
-    const interval = setInterval(fetchCryptoValues, 3000); // Aggiorna ogni 3 secondi
-
+    const interval = setInterval(fetchCryptoValues, 2000); // Aggiorna ogni 3 secondi
     return () => {
       clearInterval(interval);
     };
