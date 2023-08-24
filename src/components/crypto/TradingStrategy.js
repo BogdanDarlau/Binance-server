@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useUsdtBalance } from "./usdtBalance";
+import "./TradingStrategy.css";
 
 const TradingStrategy = ({ cryptoList }) => {
   const [cryptoPrices, setCryptoPrices] = useState({});
   const [strategyDataList, setStrategyDataList] = useState({});
   const { usdtBalance, setUsdtBalance } = useUsdtBalance();
+  const [selectedCrypto, setSelectedCrypto] = useState(null);
+  const [popupOpen, setPopupOpen] = useState(false);
 
   const fetchCryptoPrices = async () => {
     try {
@@ -26,7 +29,7 @@ const TradingStrategy = ({ cryptoList }) => {
   };
 
   useEffect(() => {
-    const interval = setInterval(fetchCryptoPrices, 3000); // Aggiorna ogni 3 secondi
+    const interval = setInterval(fetchCryptoPrices, 2000);
 
     return () => {
       clearInterval(interval);
@@ -95,18 +98,40 @@ const TradingStrategy = ({ cryptoList }) => {
     }
   }, [cryptoPrices, cryptoList, strategyDataList, usdtBalance, setUsdtBalance]);
 
+  const handleOpenPopup = (symbol) => {
+    setSelectedCrypto(symbol);
+    setPopupOpen(true);
+  };
+
+  const handleClosePopup = () => {
+    setSelectedCrypto(null);
+    setPopupOpen(false);
+  };
+
   return (
     <div>
-      <p>USDT Balance: {usdtBalance}</p>
+      <p className="usdt">USDT Balance: {usdtBalance}</p>
       {cryptoList.map((symbol) => (
         <div key={symbol}>
-          <p>Crypto Name: {symbol}</p>
-          <p>Last Order: {strategyDataList[symbol]?.lastOrder}</p>
-          <p>reference: {strategyDataList[symbol]?.reference}</p>
-          <p>Total Coin: {strategyDataList[symbol]?.totCoin}</p>
-          <p>Last Operation: {strategyDataList[symbol]?.lastOperation} </p>
+          <div className="crypto-btn" onClick={() => handleOpenPopup(symbol)}>
+            {symbol}
+          </div>
         </div>
       ))}
+      {popupOpen && selectedCrypto && (
+        <div className="popup">
+          <p className="crypto-name">{selectedCrypto}</p>
+          <p>Last Order: {strategyDataList[selectedCrypto]?.lastOrder}</p>
+          <p>Reference: {strategyDataList[selectedCrypto]?.reference}</p>
+          <p>Total Coin: {strategyDataList[selectedCrypto]?.totCoin}</p>
+          <p>
+            Last Operation: {strategyDataList[selectedCrypto]?.lastOperation}{" "}
+          </p>
+          <div className="btn">
+            <button onClick={handleClosePopup}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
