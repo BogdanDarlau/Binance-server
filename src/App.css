@@ -2,3 +2,13 @@ body {
   background-color: rgb(21, 27, 34);
   color: rgb(214, 227, 238);
 }
+
+.page {
+  display: flex;
+  margin-left: 10px;
+}
+
+.crypto-prices {
+  margin-top: 47.2px;
+  font-size: 18px;
+}

@@ -9,8 +9,14 @@ const App = () => {
   return (
     <>
       <UsdtBalanceProvider>
-        <Crypto cryptoList={cryptoList} />
-        <TradingStrategy cryptoList={cryptoList} />
+        <div className="page">
+          <div className="crypto-name-list">
+            <TradingStrategy cryptoList={cryptoList} />
+          </div>
+          <div className="crypto-prices">
+            <Crypto cryptoList={cryptoList} />
+          </div>
+        </div>
       </UsdtBalanceProvider>
     </>
   );

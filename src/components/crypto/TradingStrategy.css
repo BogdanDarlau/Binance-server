@@ -1,14 +1,15 @@
 .crypto-btn {
-  padding: 5px 10px;
+  padding: 5px 0px;
   cursor: pointer;
   font-size: 18px;
+  border-bottom: solid rgb(32, 104, 81, 0.3);
 }
 
 .usdt {
   font-size: 28px;
   font-weight: 600;
   text-align: center;
-  margin: 0;
+  margin: 5px 5px;
 }
 
 .popup {

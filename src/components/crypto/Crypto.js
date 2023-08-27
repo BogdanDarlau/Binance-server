@@ -38,7 +38,7 @@ const Crypto = ({ cryptoList }) => {
     <div>
       {Object.entries(cryptoValues).map(([symbol, price]) => (
         <div className="price-box" key={symbol}>
-          {symbol}: {price}
+          {price}
         </div>
       ))}
     </div>
