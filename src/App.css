@@ -11,4 +11,8 @@ body {
 .crypto-prices {
   margin-top: 47.2px;
   font-size: 18px;
+
+  @media screen and (max-width: 400px) {
+    margin-top: 37.5px;
+  }
 }
