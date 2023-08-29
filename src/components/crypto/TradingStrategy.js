@@ -17,7 +17,7 @@ const TradingStrategy = ({ cryptoList }) => {
     const fetchData = async () => {
       try {
         const gistResponse = await axios.get(
-          "https://gist.github.com/BogdanDarlau/fa20eee5fd7085085611bacf285126b3"
+          "https://api.github.com/gists/fa20eee5fd7085085611bacf285126b3"
         );
 
         // Estrai il contenuto del file data.json dal Gist
@@ -36,11 +36,11 @@ const TradingStrategy = ({ cryptoList }) => {
 
   // Aggiungi questa parte sotto gli altri import e hook
   const updateGistData = async (updatedData) => {
-    const gistUrl =
-      "https://gist.github.com/BogdanDarlau/fa20eee5fd7085085611bacf285126b3"; // Sostituisci con l'URL del tuo Gist
-    const accessToken = "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"; // Sostituisci con il tuo token di accesso
+    const accessToken =
+      "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"; // Sostituisci con il tuo token di accesso
 
     try {
+      const gistUrl = `https://api.github.com/gists/fa20eee5fd7085085611bacf285126b3`;
       const response = await axios.patch(
         gistUrl,
         {
