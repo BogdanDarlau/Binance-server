@@ -30,6 +30,8 @@
   width: 400px;
   display: flex;
   flex-direction: column;
+  box-shadow: -4px -4px 25px rgba(0, 0, 0, 0.4),
+    inset -4px 4px 8px rgba(255, 255, 255, 0.3);
 }
 
 .popup p {
@@ -43,12 +45,12 @@
 }
 
 .popup button {
-  background-color: #3dcdca;
-  color: rgb(0, 0, 0);
+  background: linear-gradient(rgb(25, 197, 197), rgb(13, 70, 37));
+  color: rgb(255, 255, 255);
   border: none;
   width: 75px;
   text-align: center;
-  font-weight: 600;
+  font-weight: 400;
   border-radius: 15px;
   padding: 6px 15px;
   cursor: pointer;
