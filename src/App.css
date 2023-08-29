@@ -13,6 +13,6 @@ body {
   font-size: 18px;
 
   @media screen and (max-width: 400px) {
-    margin-top: 36.5px;
+    margin-top: 33.5px;
   }
 }
