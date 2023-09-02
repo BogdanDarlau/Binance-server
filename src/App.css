@@ -8,11 +8,3 @@ body {
   margin-left: 10px;
 }
 
-.crypto-prices {
-  margin-top: 47.2px;
-  font-size: 18px;
-
-  @media screen and (max-width: 400px) {
-    margin-top: 33.5px;
-  }
-}
