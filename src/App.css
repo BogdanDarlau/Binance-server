@@ -1,18 +1,20 @@
 body {
   background-color: rgb(21, 27, 34);
+  background-image: linear-gradient(
+      rgba(21, 27, 34, 0.95),
+      rgba(0, 14, 30, 0.7)
+    ),
+    url(./binance\ background.jpg);
+  background-attachment: fixed;
+  background-size: cover;
   color: rgb(214, 227, 238);
+
+  @media screen and (max-width: 425px) {
+    background-position-x: center;
+  }
 }
 
 .page {
   display: flex;
   margin-left: 10px;
-}
-
-.crypto-prices {
-  margin-top: 47.2px;
-  font-size: 18px;
-
-  @media screen and (max-width: 400px) {
-    margin-top: 33.5px;
-  }
 }

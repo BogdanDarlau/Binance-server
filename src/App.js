@@ -1,19 +1,16 @@
 import React from "react";
 import "./App.css";
 import TradingStrategy from "./components/crypto/TradingStrategy";
-import cryptoList from "./components/crypto/crypto.json";
-import { UsdtBalanceProvider } from "./components/crypto/usdtBalance";
+import cryptoList from "./components/crypto/allCrypto.json";
 
 const App = () => {
   return (
     <>
-      <UsdtBalanceProvider>
-        <div className="page">
-          <div className="crypto-name-list">
-            <TradingStrategy cryptoList={cryptoList} />
-          </div>
+      <div className="page">
+        <div className="crypto-name-list">
+          <TradingStrategy cryptoList={cryptoList} />
         </div>
-      </UsdtBalanceProvider>
+      </div>
     </>
   );
 };

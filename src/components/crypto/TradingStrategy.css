@@ -2,7 +2,7 @@
   width: 500px;
   display: flex;
   justify-content: space-between;
-  padding: 5px 0px;
+  align-items: center;
   cursor: pointer;
   font-size: 18px;
   border-bottom: solid rgb(32, 104, 81, 0.3);
@@ -14,8 +14,19 @@
     width: 300px;
   }
 }
+.init {
+  color: rgb(255, 255, 255, 0.4);
+  font-size: 12px;
+}
 
 .usdt {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+  margin: 15px 5px;
+}
+
+.total-balance {
   font-size: 28px;
   font-weight: 600;
   text-align: center;
@@ -23,8 +34,20 @@
 }
 
 .prices {
-  width: 100px;
-  text-align: start;
+  display: flex;
+  align-items: center;
+}
+
+.verde {
+  font-size: 12px;
+  color: rgb(91, 213, 91);
+  margin-left: 16px;
+}
+
+.rosso {
+  font-size: 12px;
+  color: rgb(251, 89, 89);
+  margin-left: 20px;
 }
 
 .popup {
@@ -32,7 +55,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: linear-gradient(rgb(9, 160, 97), rgb(16, 35, 24));
+  background: linear-gradient(rgba(9, 160, 97, 0.7), rgba(9, 18, 12, 0.7)),
+    url(./dark.png);
+  background-attachment: fixed;
+  background-size: cover;
   padding: 20px;
   border-radius: 25px;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
