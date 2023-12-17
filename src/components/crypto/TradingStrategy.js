@@ -327,10 +327,7 @@ const TradingStrategy = ({ cryptoList }) => {
 
         // OTHER PURCHASE ORDERS (PURCHASE)
         if (
-          (crypto.firstpurchase ||
-            crypto.sale ||
-            crypto.sellminus ||
-            crypto.salelost) &&
+          (crypto.sale || crypto.sellminus || crypto.salelost) &&
           !execute &&
           currentPrice <= lastOrder * min &&
           bilancioUSDT >= usdtIn * 3
@@ -390,7 +387,7 @@ const TradingStrategy = ({ cryptoList }) => {
 
         // SALE ORDER STOP LOSS -3% (SALE MINUS)
         else if (
-          (crypto.purchase || crypto.buyplus) &&
+          (crypto.firstpurchase || crypto.purchase || crypto.buyplus) &&
           !execute &&
           currentPrice <= lastOrder * plusMin
         ) {
@@ -483,7 +480,10 @@ const TradingStrategy = ({ cryptoList }) => {
 
         //SALE ORDER (SELL)
         else if (
-          (crypto.purchase || crypto.buyplus || crypto.salewon) &&
+          (crypto.firstpurchase ||
+            crypto.purchase ||
+            crypto.buyplus ||
+            crypto.salewon) &&
           !execute &&
           currentPrice >= lastOrder * max
         ) {
@@ -667,7 +667,7 @@ const TradingStrategy = ({ cryptoList }) => {
   return (
     <div>
       <p className="init">Init Budget: 10000 USDT</p>
-      <p className="total-balance">Total Balance: {totalBalance}</p>
+      <p className="total-balance">Total Balance: {totalBalance} $ </p>
       <p className="usdt">USDT Balance: {bilancioUSDT}</p>
       {Object.entries(cryptoValues).map(([symbol, price]) => (
         <div key={symbol}>
